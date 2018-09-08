@@ -2,10 +2,10 @@
     "name": "api",
     "version": "1.0.0",
     "description": "The API for Flavour 101",
-    "main": "src/index.js",
     "scripts": {
         "test": "echo \"Error: no test specified\" && exit 1",
-        "start": "node src/index.js"
+        "build": "babel src -d lib",
+        "start": "npm run build && node lib/index.js"
     },
     "keywords": [
         "Flavour101",
@@ -15,5 +15,9 @@
     "license": "UNLICENSED",
     "dependencies": {
         "express": "^4.16.3"
+    },
+    "devDependencies": {
+        "babel-cli": "^6.26.0",
+        "babel-plugin-transform-es2015-modules-commonjs": "^6.26.2"
     }
 }

@@ -1,10 +1,13 @@
-const express = require("express");
-const app = express();
-const config = require("./config");
+import express from "express";
+import config from "./config";
+import reviewRouter from "./routes/review";
 
-app.get('/', (req, res) => {
-    res.send('hello world')
-})
+const app = express();
+const router = express.Router();
+
+router.use("/review", reviewRouter);
+
+app.use("/api", router);
 
 app.listen(config.port, () => {
     console.log("Starting application on port: " + config.port);
