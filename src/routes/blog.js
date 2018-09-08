@@ -5,4 +5,9 @@ router.route("/")
         res.send([]);
     })
 
+router.route("/:id")
+    .get((req, res) => {
+        res.send({});
+    })
+
 export default router;

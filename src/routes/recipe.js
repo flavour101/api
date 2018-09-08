@@ -2,7 +2,12 @@ const router = require("express").Router();
 
 router.route("/")
     .get((req, res) => {
-        res.send([]); // Send list of reviews
+        res.send([]);
+    })
+
+router.route("/:id")
+    .get((req, res) => {
+        res.send({});
     })
 
 export default router;
