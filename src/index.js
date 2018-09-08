@@ -2,7 +2,7 @@ const express = require("express");
 const app = express();
 const config = require("./config");
 
-app.get('/', function (req, res) {
+app.get('/', (req, res) => {
     res.send('hello world')
 })
 
