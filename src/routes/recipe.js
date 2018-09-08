@@ -1,8 +1,17 @@
-const router = require("express").Router();
+import { Router } from "express";
+import { query } from "../interfaces/db";
+
+const router = Router();
 
 router.route("/")
-    .get((req, res) => {
-        res.send([]);
+    .get((req, res, next) => {
+        query("SELECT * FROM recipe")
+            .then(results => {
+                res.send(results);
+            })
+            .catch(error => {
+                next(error);
+            })
     })
 
 router.route("/:id")
