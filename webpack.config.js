@@ -7,7 +7,7 @@ module.exports = {
     entry: SRC + "index.js",
     output: {
         path: DIST,
-        filename: "bundle.js"
+        filename: "server.js"
     },
     module: {
         rules: [
