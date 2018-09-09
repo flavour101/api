@@ -1,9 +1,9 @@
-const express = require("express");
-const config = require("./config");
-const blog = require("./routes/blog");
-const gallery = require("./routes/gallery");
-const recipe = require("./routes/recipe");
-const review = require("./routes/review");
+import express from "express";
+import config from "./config";
+import blog from "./routes/blog";
+import gallery from "./routes/gallery";
+import recipe from "./routes/recipe";
+import review from "./routes/review";
 
 const app = express();
 const router = express.Router();

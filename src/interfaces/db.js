@@ -1,7 +1,8 @@
-const mysql = require("mysql");
-const config = require("../config");
+import mysql from "mysql";
+import config from "../config";
 
 let pool;
+const db = {};
 
 const initPool = () => {
     pool = mysql.createPool({
@@ -18,7 +19,7 @@ process.on("beforeExit", () => {
     if (pool) pool.end();
 })
 
-module.exports.query = (sql) => {
+db.query = (sql) => {
     if (!pool) initPool();
     return new Promise(((resolve, reject) => {
 
@@ -34,3 +35,5 @@ module.exports.query = (sql) => {
         })
     }))
 }
+
+export default db;

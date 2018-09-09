@@ -1,5 +1,5 @@
-const Router = require("express").Router;
-const db = require("../interfaces/db");
+import { Router } from "express";
+import db from "../interfaces/db";
 
 const router = Router();
 
@@ -19,4 +19,4 @@ router.route("/:id")
         res.send({});
     })
 
-module.exports = router;
+export default router;

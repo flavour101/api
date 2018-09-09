@@ -1,4 +1,4 @@
-module.exports = {
+export default {
     port: 8081,
     db: {
         host: process.env.DB_HOST || "localhost",
