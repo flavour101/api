@@ -4,8 +4,11 @@
     "description": "The API for Flavour 101",
     "scripts": {
         "test": "echo \"Error: no test specified\" && exit 1",
-        "build": "babel src -d lib",
-        "start": "npm run build && node lib/index.js"
+        "start": "node src/index.js",
+        "docker:build": "docker build -t $npm_package_name:latest .",
+        "docker:run": "docker run --name $npm_package_name -d -p 8081:8081 $npm_package_name:latest",
+        "docker": "npm pack && npm run docker:build && npm run docker:run",
+        "docker:destroy": "docker stop $npm_package_name && docker rm $npm_package_name && docker rmi $npm_package_name"
     },
     "keywords": [
         "Flavour101",
@@ -17,8 +20,8 @@
         "express": "^4.16.3",
         "mysql": "^2.16.0"
     },
-    "devDependencies": {
-        "babel-cli": "^6.26.0",
-        "babel-plugin-transform-es2015-modules-commonjs": "^6.26.2"
-    }
+    "bundledDependencies": [
+        "express",
+        "mysql"
+    ]
 }

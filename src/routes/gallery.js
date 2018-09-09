@@ -1,4 +1,4 @@
-import { Router } from "express";
+const Router = require("express").Router;
 
 const router = Router();
 
@@ -7,4 +7,4 @@ router.route("/")
         res.send([]);
     })
 
-export default router;
+module.exports = router;

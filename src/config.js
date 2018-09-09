@@ -1,7 +1,7 @@
-export default {
+module.exports = {
     port: 8081,
     db: {
-        host: "localhost",
+        host: process.env.DB_HOST || "localhost",
         port: 3306,
         database: "flavour101",
         user: "root",

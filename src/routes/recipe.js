@@ -1,11 +1,11 @@
-import { Router } from "express";
-import { query } from "../interfaces/db";
+const Router = require("express").Router;
+const db = require("../interfaces/db");
 
 const router = Router();
 
 router.route("/")
     .get((req, res, next) => {
-        query("SELECT * FROM recipe")
+        db.query("SELECT * FROM recipe")
             .then(results => {
                 res.send(results);
             })
@@ -19,4 +19,4 @@ router.route("/:id")
         res.send({});
     })
 
-export default router;
+module.exports = router;
