@@ -5,7 +5,7 @@ const router = Router();
 
 router.route("/")
     .get((req, res, next) => {
-        db.query("SELECT * FROM review")
+        db.query("SELECT * FROM review WHERE post_date IS NOT NULL")
             .then(results => {
                 res.send(results);
             })

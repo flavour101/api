@@ -11,7 +11,8 @@ const initPool = () => {
         database: config.db.database,
         user: config.db.user,
         password: config.db.password,
-        connectionLimit: 100
+        connectionLimit: 100,
+        timezone: "utc"
     })
 }
 
