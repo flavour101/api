@@ -1,6 +1,6 @@
 create table blog
 (
-  id        int          not null,
+  id        varchar(5)   not null,
   title     varchar(100) not null,
   post_date datetime     null,
   source    varchar(256) null,
@@ -12,9 +12,23 @@ create table blog
 alter table blog
   add primary key (id);
 
+create table images
+(
+  id             varchar(5)   not null,
+  reference_id   varchar(5)   null,
+  reference_type varchar(15)  null,
+  source         varchar(256) null,
+  post_date      datetime     null,
+  constraint images_id_uindex
+  unique (id)
+);
+
+alter table images
+  add primary key (id);
+
 create table recipe
 (
-  id        int          not null,
+  id        varchar(5)   not null,
   title     varchar(100) not null,
   post_date datetime     null,
   source    varchar(256) null,
@@ -28,7 +42,7 @@ alter table recipe
 
 create table review
 (
-  id           int          not null,
+  id           varchar(5)   not null,
   title        varchar(100) not null,
   post_date    datetime     null,
   x_coordinate double       null,
