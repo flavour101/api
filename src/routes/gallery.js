@@ -5,8 +5,6 @@ const router = Router();
 
 router.route("/")
     .get((req, res, next) => {
-        console.log(req.originalUrl);
-
         let promises = [];
 
         promises.push(db.query("SELECT * FROM image WHERE post_date IS NOT NULL ORDER BY post_date DESC"))
