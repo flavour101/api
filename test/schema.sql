@@ -12,7 +12,7 @@ create table blog
 alter table blog
   add primary key (id);
 
-create table images
+create table image
 (
   id             varchar(5)   not null,
   reference_id   varchar(5)   null,
@@ -23,7 +23,7 @@ create table images
   unique (id)
 );
 
-alter table images
+alter table image
   add primary key (id);
 
 create table recipe
