@@ -22,6 +22,12 @@ INSERT INTO review(id, title, post_date, x_coordinate, y_coordinate, source, thu
 INSERT INTO image(id, reference_id, reference_type, source, post_date) VALUES ('1', '1', 'blog', '/random.png', '2018-09-01 12:30:00.000');
 INSERT INTO image(id, reference_id, reference_type, source, post_date) VALUES ('2', '1', 'blog', '/random2.png', '2018-09-01 10:30:00.000');
 INSERT INTO image(id, reference_id, reference_type, source, post_date) VALUES ('3', '1', 'blog', '/random3.png', '2018-09-01 16:30:00.000');
+INSERT INTO image(id, reference_id, reference_type, source, post_date) VALUES ('4', '2', 'blog', '/random4.png', '2018-09-02 12:40:00.000');
+INSERT INTO image(id, reference_id, reference_type, source, post_date) VALUES ('5', '2', 'blog', '/random5.png', '2018-09-02 11:30:00.000');
+INSERT INTO image(id, reference_id, reference_type, source, post_date) VALUES ('6', '2', 'blog', '/random6.png', '2018-09-02 16:30:00.000');
+INSERT INTO image(id, reference_id, reference_type, source, post_date) VALUES ('7', '2', 'blog', '/random7.png', '2018-09-02 12:50:00.000');
+INSERT INTO image(id, reference_id, reference_type, source, post_date) VALUES ('8', '3', 'blog', '/random8.png', '2018-09-05 10:30:00.000');
+INSERT INTO image(id, reference_id, reference_type, source, post_date) VALUES ('9', '4', 'blog', '/random9.png', '2018-09-06 16:30:00.000');
 
 -- PROVE
 SELECT * FROM blog;
