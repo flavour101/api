@@ -42,13 +42,13 @@ alter table recipe
 
 create table review
 (
-  id           varchar(5)   not null,
-  title        varchar(100) not null,
-  post_date    datetime     null,
-  x_coordinate double       null,
-  y_coordinate double       null,
-  source       varchar(256) null,
-  thumbnail    varchar(256) null,
+  id        varchar(5)   not null,
+  title     varchar(100) not null,
+  post_date datetime     null,
+  lat       double       null,
+  lng       double       null,
+  source    varchar(256) null,
+  thumbnail varchar(256) null,
   constraint reviews_id_uindex
   unique (id)
 );
