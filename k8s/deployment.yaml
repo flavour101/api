@@ -1,0 +1,39 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: api
+  namespace: {{.KUBE_NAMESPACE}}
+spec:
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: api
+        env: {{.KUBE_NAMESPACE}}
+    spec:
+      containers:
+      - image: "{{.IMAGE_TAG}}"
+        imagePullPolicy: Always
+        name: api
+        ports:
+        - containerPort: 8081
+        resources:
+          requests:
+            memory: "256Mi"
+            cpu: "100m"
+          limits:
+            memory: "2Gi"
+            cpu: "200m"
+        readinessProbe:
+          initialDelaySeconds: 10
+          periodSeconds: 10
+          failureThreshold: 60
+          httpGet:
+            port: 8081
+            path: /health
+        livenessProbe:
+          initialDelaySeconds: 300
+          periodSeconds: 30
+          httpGet:
+            port: 8081
+            path: /health
