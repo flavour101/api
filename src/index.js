@@ -24,6 +24,12 @@ router.use("/review", review);
 
 app.use("/api", router);
 
+app.route("/health")
+    .get((req, res) => {
+        res.statusCode = 200;
+        res.send();
+    })
+
 app.listen(config.port, () => {
     console.log("Starting application on port: " + config.port);
 })
