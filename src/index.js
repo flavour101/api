@@ -5,6 +5,9 @@ import gallery from "./routes/gallery";
 import recipe from "./routes/recipe";
 import review from "./routes/review";
 
+import db from "./interfaces/db";
+db.test();
+
 const app = express();
 const router = express.Router();
 

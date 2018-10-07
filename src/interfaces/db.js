@@ -20,6 +20,18 @@ process.on("beforeExit", () => {
     if (pool) pool.end();
 })
 
+db.test = () => {
+    if (!pool) initPool();
+    pool.getConnection((err, con) => {
+        if (err) throw err;
+        con.query("SHOW TABLES", error => {
+            if (error) reject(error);
+            console.log("DB Connection Successful!");
+            con.release();
+        });
+    })
+}
+
 db.query = (sql) => {
     if (!pool) initPool();
     return new Promise(((resolve, reject) => {
