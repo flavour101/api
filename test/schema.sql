@@ -1,4 +1,4 @@
-create table blog
+create table if not exists blog
 (
   id        varchar(5)   not null,
   title     varchar(100) not null,
@@ -12,7 +12,7 @@ create table blog
 alter table blog
   add primary key (id);
 
-create table image
+create table if not exists image
 (
   id             varchar(5)   not null,
   reference_id   varchar(5)   null,
@@ -26,7 +26,7 @@ create table image
 alter table image
   add primary key (id);
 
-create table recipe
+create table if not exists recipe
 (
   id        varchar(5)   not null,
   title     varchar(100) not null,
@@ -40,7 +40,7 @@ create table recipe
 alter table recipe
   add primary key (id);
 
-create table review
+create table if not exists review
 (
   id        varchar(5)   not null,
   title     varchar(100) not null,
