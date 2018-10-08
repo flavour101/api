@@ -4,7 +4,7 @@ metadata:
   name: api
   namespace: {{.KUBE_NAMESPACE}}
 spec:
-  replicas: 1
+  replicas: 2
   template:
     metadata:
       labels:
@@ -61,3 +61,8 @@ spec:
         - name: csp-credentials
           secret:
             secretName: csp-credentials
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxSurge: 1
+      maxUnavailable: 0
