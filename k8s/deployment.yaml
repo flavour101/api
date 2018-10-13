@@ -44,6 +44,12 @@ spec:
           requests:
             memory: "0"
             cpu: "0"
+        env:
+        - name: INSTANCE_CONNECTION_NAME
+          valueFrom:
+            configMapKeyRef:
+              name: csp
+              key: instance-connection-name
         command: ["/cloud_sql_proxy", "--dir=/cloudsql",
                   "-instances=$(INSTANCE_CONNECTION_NAME)=tcp:3306",
                   "-credential_file=/secrets/cloudsql/credentials.json"]
