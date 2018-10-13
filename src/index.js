@@ -4,8 +4,10 @@ import blog from "./routes/blog";
 import gallery from "./routes/gallery";
 import recipe from "./routes/recipe";
 import review from "./routes/review";
-
 import db from "./interfaces/db";
+
+console.log(JSON.stringify(config, null, 4));
+
 db.test();
 
 const app = express();
