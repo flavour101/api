@@ -1,7 +1,7 @@
 export default {
     port: 8081,
     db: {
-        host: process.env.DB_HOST || "localhost",
+        host: "localhost",
         port: 3306,
         database: "flavour101",
         user: "api-user",
