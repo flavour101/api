@@ -57,6 +57,8 @@ spec:
           - name: csp-credentials
             mountPath: /secrets/cloudsql
             readOnly: true
+      imagePullSecrets:
+      - name: api-registry-deploy-token
       volumes:
         - name: csp-credentials
           secret:
