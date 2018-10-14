@@ -11,7 +11,6 @@ console.log(JSON.stringify(config, null, 4));
 db.test();
 
 const app = express();
-const router = express.Router();
 
 app.use((req, res, next) => {
     console.log(req.originalUrl);
@@ -22,12 +21,10 @@ app.use((req, res, next) => {
     next();
 })
 
-router.use("/blog", blog);
-router.use("/gallery", gallery);
-router.use("/recipe", recipe);
-router.use("/review", review);
-
-app.use("/api", router);
+app.use("/blog", blog);
+app.use("/gallery", gallery);
+app.use("/recipe", recipe);
+app.use("/review", review);
 
 app.route("/health")
     .get((req, res) => {
