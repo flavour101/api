@@ -16,7 +16,7 @@ router.route("/")
 
 router.route("/:id")
     .get((req, res, next) => {
-        db.query(`SELECT * FROM review WHERE post_date IS NOT NULL AND id=${req.params.id}`)
+        db.query(`SELECT * FROM review WHERE post_date IS NOT NULL AND id='${req.params.id}'`)
             .then(reviews => {
                 const review = reviews[0];
                 review.images = [];
