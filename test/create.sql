@@ -1,3 +1,10 @@
+SELECT id FROM blog WHERE id='ID_ASD';
+SELECT id FROM image WHERE id='ID_ASD';
+SELECT id FROM recipe WHERE id='ID_ASD';
+SELECT id FROM review WHERE id='ID_ASD';
+
+
+
 INSERT INTO blog (id, title, post_date, source, thumbnail)
 VALUES ('ID_ASD', 'TITLE', '2018-09-01 12:30:00.000', '/path/to/file.md', '/path/to/thumbnail.png');
 
