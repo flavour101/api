@@ -22,7 +22,7 @@ router.route("/:id")
                 blog.images = [];
                 db.query(`SELECT * FROM image WHERE reference_id='${req.params.id}' AND reference_type='blog'`)
                     .then(images => {
-                        blog.images = images;
+                        blog.images = images.sort((a, b) => new Date(b.post_date).getTime() - new Date(a.post_date).getTime());
                         res.send(blog);
                     })
                     .catch(error => {
