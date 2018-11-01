@@ -15,7 +15,7 @@ alter table blog
 create table if not exists image
 (
   id             varchar(6)   not null,
-  reference_id   varchar(5)   null,
+  reference_id   varchar(6)   null,
   reference_type varchar(15)  null,
   source         varchar(256) null,
   post_date      datetime     null,

@@ -68,3 +68,11 @@ INSERT INTO review VALUES (...table_values);
 ```sql
 INSERT INTO image VALUES (...table_values);
 ```
+
+### id
+
+Run:
+
+```bash
+openssl rand -hex 3
+```

@@ -20,6 +20,8 @@ router.route("/")
         Promise.all(promises).then(values => {
             response = response.concat(...values);
 
+            response.sort((a, b) => new Date(b.post_date).getTime() - new Date(a.post_date).getTime())
+
             // TODO - Sort response
             
             res.send(response);

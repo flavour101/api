@@ -11,7 +11,7 @@ VALUES ('ID_ASD', 'TITLE', '2018-09-01 12:30:00.000', '/path/to/file.md', '/path
 
 
 INSERT INTO image (id, reference_id, reference_type, source, post_date)
-VALUES ('ID_ASD', 'REFERENCE_ID', 'REFERENCE_TYPE', '/path/to/file.md', '2018-09-01 12:30:00.000');
+VALUES ('3212c9', '6d18cc', 'recipe', 'http://images.flavour101.com/roast-beef-1.jpg', '2018-11-01 09:01:00.000');
 
 
 

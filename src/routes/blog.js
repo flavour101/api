@@ -22,9 +22,7 @@ router.route("/:id")
                 blog.images = [];
                 db.query(`SELECT * FROM image WHERE reference_id='${req.params.id}' AND reference_type='blog'`)
                     .then(images => {
-                        images.forEach(image => {
-                            blog.images.push(image.source);
-                        })
+                        blog.images = images;
                         res.send(blog);
                     })
                     .catch(error => {
