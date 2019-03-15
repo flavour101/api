@@ -4,11 +4,11 @@ import blog from "./routes/blog";
 import gallery from "./routes/gallery";
 import recipe from "./routes/recipe";
 import review from "./routes/review";
-import db from "./interfaces/db";
+import mysql from "./interfaces/mysql";
 
 console.log(JSON.stringify(config, null, 4));
 
-db.test();
+mysql.test();
 
 const app = express();
 const router = express.Router();

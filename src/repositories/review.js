@@ -1,0 +1,39 @@
+import mysql from "../interfaces/mysql";
+
+const repo = {};
+
+repo.fetchAll = () => {
+    return new Promise((resolve, reject) => {
+        mysql.query("SELECT * FROM review WHERE post_date IS NOT NULL")
+            .then(results => {
+                resolve(results);
+            })
+            .catch(error => {
+                reject(error);
+            })
+    })
+}
+
+repo.fetchById = id => {
+    return new Promise((resolve, reject) => {
+        mysql.query(`SELECT * FROM review WHERE post_date IS NOT NULL AND id='${id}'`)
+            .then(reviews => {
+                const review = reviews[0];
+                review.images = [];
+                mysql.query(`SELECT * FROM image WHERE reference_id='${id}' AND reference_type='review'`)
+                    .then(images => {
+                        review.images = images.sort((a, b) => new Date(a.post_date).getTime() - new Date(b.post_date).getTime());
+                        resolve(review);
+                    })
+                    .catch(error => {
+                        reject(error);
+                    })
+            })
+            .catch(error => {
+                reject(error);
+            })
+
+    })
+}
+
+export default repo;

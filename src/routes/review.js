@@ -1,13 +1,13 @@
 import { Router } from "express";
-import db from "../interfaces/db";
+import reviewRepo from "../repositories/review";
 
 const router = Router();
 
 router.route("/")
     .get((req, res, next) => {
-        db.query("SELECT * FROM review WHERE post_date IS NOT NULL")
-            .then(results => {
-                res.send(results);
+        reviewRepo.fetchAll()
+            .then(reviews => {
+                res.send(reviews);
             })
             .catch(error => {
                 next(error);
@@ -16,18 +16,9 @@ router.route("/")
 
 router.route("/:id")
     .get((req, res, next) => {
-        db.query(`SELECT * FROM review WHERE post_date IS NOT NULL AND id='${req.params.id}'`)
-            .then(reviews => {
-                const review = reviews[0];
-                review.images = [];
-                db.query(`SELECT * FROM image WHERE reference_id='${req.params.id}' AND reference_type='review'`)
-                    .then(images => {
-                        review.images = images.sort((a, b) => new Date(a.post_date).getTime() - new Date(b.post_date).getTime());
-                        res.send(review);
-                    })
-                    .catch(error => {
-                        next(error);
-                    })
+        reviewRepo.fetchById(req.params.id)
+            .then(review => {
+                res.send(review);
             })
             .catch(error => {
                 next(error);
