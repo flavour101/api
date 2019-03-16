@@ -21,6 +21,27 @@ spec:
           requests:
             memory: "0.05Gi"
             cpu: "0.008"
+        env:
+        - name: MONGODB_CLUSTER
+          valueFrom:
+            configMapKeyRef:
+              name: mongodb
+              key: cluster
+        - name: MONGODB_USER
+          valueFrom:
+            secretKeyRef:
+              name: mongodb
+              key: user
+        - name: MONGODB_PASSWORD
+          valueFrom:
+            secretKeyRef:
+              name: mongodb
+              key: password
+        - name: MONGODB_DB
+          valueFrom:
+            configMapKeyRef:
+              name: mongodb
+              key: db
         readinessProbe:
           initialDelaySeconds: 10
           periodSeconds: 10

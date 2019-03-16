@@ -6,11 +6,11 @@ const db = {};
 
 const initPool = () => {
     pool = mysql.createPool({
-        host: config.db.host,
-        port: config.db.port,
-        database: config.db.database,
-        user: config.db.user,
-        password: config.db.password,
+        host: config.mysql.host,
+        port: config.mysql.port,
+        database: config.mysql.database,
+        user: config.mysql.user,
+        password: config.mysql.password,
         connectionLimit: 100,
         timezone: "utc"
     })
