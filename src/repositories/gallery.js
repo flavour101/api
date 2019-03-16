@@ -1,4 +1,4 @@
-import mysql from "../interfaces/mysql";
+import mongodb from "../interfaces/mongodb";
 
 const repo = {};
 
@@ -7,10 +7,7 @@ repo.fetchAll = () => {
         let promises = [];
 
         promises.push(
-            mysql.query("SELECT * FROM image WHERE post_date IS NOT NULL ORDER BY post_date DESC")
-                .catch(error => {
-                    reject(error);
-                })
+            mongodb.fetchAllFromCollection("gallery")
         )
 
         // TODO - Get Instagram photos
@@ -18,11 +15,7 @@ repo.fetchAll = () => {
         let response = [];
         Promise.all(promises).then(values => {
             response = response.concat(...values);
-
             response.sort((a, b) => new Date(b.post_date).getTime() - new Date(a.post_date).getTime())
-
-            // TODO - Sort response
-
             resolve(response);
         })
     })

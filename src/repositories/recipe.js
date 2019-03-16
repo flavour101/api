@@ -1,10 +1,11 @@
 import mysql from "../interfaces/mysql";
+import mongodb from "../interfaces/mongodb";
 
 const repo = {};
 
 repo.fetchAll = () => {
     return new Promise((resolve, reject) => {
-        mysql.query("SELECT * FROM recipe WHERE post_date IS NOT NULL")
+        mongodb.fetchAllFromCollection("recipe")
             .then(results => {
                 resolve(results);
             })
