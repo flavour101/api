@@ -55,6 +55,8 @@ spec:
           httpGet:
             port: 8081
             path: /health
+      imagePullSecrets:
+      - name: api-registry-deploy-token
   strategy:
     type: RollingUpdate
     rollingUpdate:
