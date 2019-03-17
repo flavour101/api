@@ -8,9 +8,9 @@ export default {
         password: process.env.DB_PASSWORD || ""
     },
     mongodb: {
-        cluster: process.env.MONGODB_CLUSTER || "",
+        cluster: process.env.MONGODB_CLUSTER || "cluster0-ev15b.gcp.mongodb.net",
         user: process.env.MONGODB_USER || "api-user",
-        password: process.env.MONGODB_PASSWORD || "",
+        password: process.env.MONGODB_PASSWORD || "N9rL8hQpFhMc",
         db: process.env.MONGODB_DB || "flavour101"
     }
 }

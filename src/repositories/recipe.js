@@ -1,4 +1,3 @@
-import mysql from "../interfaces/mysql";
 import mongodb from "../interfaces/mongodb";
 
 const repo = {};
@@ -21,7 +20,7 @@ repo.fetchById = id => {
         mongodb.fetchByIdFromCollection("recipe", id)
             .then(recipe => {
                 recipe.images = [];
-                mysql.query(`SELECT * FROM image WHERE reference_id='${id}' AND reference_type='recipe'`)
+                mongodb.fetchImagesByReferenceId("recipe", id)
                     .then(images => {
                         recipe.images = images.sort((a, b) => new Date(a.post_date).getTime() - new Date(b.post_date).getTime());
                         resolve(recipe);
