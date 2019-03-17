@@ -18,9 +18,8 @@ repo.fetchAll = () => {
 
 repo.fetchById = id => {
     return new Promise((resolve, reject) => {
-        mysql.query(`SELECT * FROM review WHERE post_date IS NOT NULL AND id='${id}'`)
-            .then(reviews => {
-                const review = reviews[0];
+        mongodb.fetchByIdFromCollection("review", id)
+            .then(review => {
                 review.images = [];
                 mysql.query(`SELECT * FROM image WHERE reference_id='${id}' AND reference_type='review'`)
                     .then(images => {
@@ -34,7 +33,6 @@ repo.fetchById = id => {
             .catch(error => {
                 reject(error);
             })
-
     })
 }
 

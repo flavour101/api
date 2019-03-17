@@ -18,9 +18,8 @@ repo.fetchAll = () => {
 
 repo.fetchById = id => {
     return new Promise((resolve, reject) => {
-        mysql.query(`SELECT * FROM recipe WHERE post_date IS NOT NULL AND id='${id}'`)
-            .then(recipes => {
-                const recipe = recipes[0];
+        mongodb.fetchByIdFromCollection("recipe", id)
+            .then(recipe => {
                 recipe.images = [];
                 mysql.query(`SELECT * FROM image WHERE reference_id='${id}' AND reference_type='recipe'`)
                     .then(images => {
