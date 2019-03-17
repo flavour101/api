@@ -55,32 +55,6 @@ spec:
           httpGet:
             port: 8081
             path: /health
-      - name: csp
-        image: gcr.io/cloudsql-docker/gce-proxy:1.11
-        imagePullPolicy: 
-        resources:
-          requests:
-            memory: "0"
-            cpu: "0"
-        env:
-        - name: INSTANCE_CONNECTION_NAME
-          valueFrom:
-            configMapKeyRef:
-              name: csp
-              key: instance-connection-name
-        command: ["/cloud_sql_proxy", "--dir=/cloudsql",
-                  "-instances=$(INSTANCE_CONNECTION_NAME)=tcp:3306",
-                  "-credential_file=/secrets/cloudsql/credentials.json"]
-        volumeMounts:
-          - name: csp-credentials
-            mountPath: /secrets/cloudsql
-            readOnly: true
-      imagePullSecrets:
-      - name: api-registry-deploy-token
-      volumes:
-        - name: csp-credentials
-          secret:
-            secretName: csp-credentials
   strategy:
     type: RollingUpdate
     rollingUpdate:
