@@ -1,3 +1,6 @@
+// DEPRECATED
+// Keeping this file for reference, or if there is a move back to using a MySQL database
+
 import mysql from "mysql";
 import config from "../config";
 
@@ -49,4 +52,4 @@ db.query = (sql) => {
     }))
 }
 
-export default db;
+// export default db;

@@ -4,12 +4,10 @@ import blog from "./routes/blog";
 import gallery from "./routes/gallery";
 import recipe from "./routes/recipe";
 import review from "./routes/review";
-import mysql from "./interfaces/mysql";
 import mongodb from "./interfaces/mongodb";
 
 console.log(JSON.stringify(config, null, 4));
 
-mysql.test();
 mongodb.test();
 
 const app = express();
