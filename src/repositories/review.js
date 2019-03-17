@@ -7,6 +7,7 @@ repo.fetchAll = () => {
     return new Promise((resolve, reject) => {
         mongodb.fetchAllFromCollection("review")
             .then(results => {
+                results.sort((a, b) => new Date(b.post_date).getTime() - new Date(a.post_date).getTime());
                 resolve(results);
             })
             .catch(error => {
