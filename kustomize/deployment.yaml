@@ -18,7 +18,8 @@ spec:
         image: eu.gcr.io/harmelodic-images/main:v0
         imagePullPolicy: Always
         ports:
-        - containerPort: 8081
+        - name: http
+          containerPort: 8081
         resources:
           requests:
             memory: 0.2Gi
