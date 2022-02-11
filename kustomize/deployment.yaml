@@ -15,7 +15,7 @@ spec:
       serviceAccountName: api
       containers:
       - name: api
-        image: eu.gcr.io/harmelodic-images/main:v0
+        image: eu.gcr.io/harmelodic-images/api:v0
         imagePullPolicy: Always
         ports:
         - name: http
