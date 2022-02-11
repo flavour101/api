@@ -1,26 +1,31 @@
-apiVersion: extensions/v1beta1
+apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: api
-  namespace: {{.KUBE_NAMESPACE}}
 spec:
+  selector:
+    matchLabels:
+      app: api
   replicas: 1
   template:
     metadata:
       labels:
         app: api
-        env: {{.KUBE_NAMESPACE}}
     spec:
+      serviceAccountName: api
       containers:
       - name: api
-        image: "{{.IMAGE_TAG}}"
+        image: eu.gcr.io/harmelodic-images/main:v0
         imagePullPolicy: Always
         ports:
         - containerPort: 8081
         resources:
           requests:
-            memory: "0.05Gi"
-            cpu: "0.008"
+            memory: 0.2Gi
+            cpu: 500m
+          limits:
+            memory: 0.5Gi
+            cpu: "1"
         env:
         - name: MONGODB_CLUSTER
           valueFrom:
@@ -55,8 +60,6 @@ spec:
           httpGet:
             port: 8081
             path: /health
-      imagePullSecrets:
-      - name: api-registry-deploy-token
   strategy:
     type: RollingUpdate
     rollingUpdate:

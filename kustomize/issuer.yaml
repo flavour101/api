@@ -1,0 +1,22 @@
+apiVersion: cert-manager.io/v1
+kind: Issuer
+metadata:
+  name: letsencrypt
+spec:
+  acme:
+    server: https://acme-v02.api.letsencrypt.org/directory
+    email: matt+letsencrypt@harmelodic.com
+    privateKeySecretRef:
+      name: letsencrypt
+    solvers:
+      - selector:
+          dnsZones:
+            - "flavour101.com"
+        dns01:
+          route53:
+            region: eu-west-1
+            hostedZoneID: Z2JHB86P118H9E
+            accessKeyID: AKIAINZD2OD26V5HWOVQ
+            secretAccessKeySecretRef:
+              name: cert-manager-route53
+              key: secret-access-key
