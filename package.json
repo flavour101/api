@@ -18,7 +18,7 @@
     "author": "Harmelodic",
     "license": "UNLICENSED",
     "dependencies": {
-        "express": "4.19.1",
+        "express": "4.19.2",
         "mongodb": "6.5.0",
         "mysql": "2.18.1"
     },
